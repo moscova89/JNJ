@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceDetailViewController" customModule="SwiftAssignment_JNJ" customModuleProvider="target">
+            <connections>
+                <outlet property="checkInOutButton" destination="ygX-rw-EHA" id="4SD-yy-dxl"/>
+                <outlet property="deviceManufacturerLabel" destination="iKF-dp-2QA" id="a8l-td-9oW"/>
+                <outlet property="deviceNameLabel" destination="QxL-jt-mPn" id="TpR-EC-v3D"/>
+                <outlet property="deviceOSLabel" destination="jXd-Y7-4pu" id="NWG-Ex-oob"/>
+                <outlet property="lastCheckedInLabel" destination="8g6-UO-rPW" id="ZmJ-SW-Nfw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxL-jt-mPn">
+                    <rect key="frame" x="59" y="84" width="256" height="40"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Device OS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXd-Y7-4pu">
+                    <rect key="frame" x="59" y="142" width="256" height="47"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Manufacturer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKF-dp-2QA">
+                    <rect key="frame" x="59" y="197" width="256" height="45"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Checked In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g6-UO-rPW">
+                    <rect key="frame" x="59" y="258" width="256" height="64"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-rw-EHA">
+                    <rect key="frame" x="83" y="429" width="208" height="74"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Check In">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="checkInOrOut:" destination="-1" eventType="touchUpInside" id="98A-ru-JWT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ygX-rw-EHA" secondAttribute="bottom" constant="164" id="2Ly-fU-ZIS"/>
+                <constraint firstAttribute="trailing" secondItem="QxL-jt-mPn" secondAttribute="trailing" constant="60" id="3RU-4M-Jiv"/>
+                <constraint firstAttribute="trailing" secondItem="8g6-UO-rPW" secondAttribute="trailing" constant="60" id="5R6-3r-YQK"/>
+                <constraint firstItem="jXd-Y7-4pu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="59" id="CY7-QK-3L6"/>
+                <constraint firstAttribute="trailing" secondItem="jXd-Y7-4pu" secondAttribute="trailing" constant="60" id="HHv-Ip-gs4"/>
+                <constraint firstItem="8g6-UO-rPW" firstAttribute="top" secondItem="iKF-dp-2QA" secondAttribute="bottom" constant="16" id="Jeo-Vh-Z8w"/>
+                <constraint firstItem="QxL-jt-mPn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="RB3-q4-VpV"/>
+                <constraint firstItem="ygX-rw-EHA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="83" id="UdD-eW-4tN"/>
+                <constraint firstAttribute="trailing" secondItem="iKF-dp-2QA" secondAttribute="trailing" constant="60" id="Uze-po-4C4"/>
+                <constraint firstItem="jXd-Y7-4pu" firstAttribute="top" secondItem="QxL-jt-mPn" secondAttribute="bottom" constant="18" id="Xys-bH-cfm"/>
+                <constraint firstItem="iKF-dp-2QA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="59" id="aPW-Of-ugr"/>
+                <constraint firstItem="ygX-rw-EHA" firstAttribute="top" secondItem="8g6-UO-rPW" secondAttribute="bottom" constant="107" id="fMw-NV-z73"/>
+                <constraint firstItem="iKF-dp-2QA" firstAttribute="top" secondItem="jXd-Y7-4pu" secondAttribute="bottom" constant="8" id="gGh-Tu-eIX"/>
+                <constraint firstItem="QxL-jt-mPn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="59" id="qdp-4y-7us"/>
+                <constraint firstAttribute="trailing" secondItem="ygX-rw-EHA" secondAttribute="trailing" constant="84" id="qrs-Qb-Bqf"/>
+                <constraint firstItem="8g6-UO-rPW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="59" id="rNA-lc-yZ9"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
