@@ -29,10 +29,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getDevicesFromCoreData();
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     
@@ -53,17 +60,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell : UITableViewCell =  tableview!.dequeueReusableCell(withIdentifier: ViewController.cellID!)!
         
-        cell.textLabel?.text = device?.deviceID
+        cell.textLabel?.text = (device?.deviceName)! + " - " + (device?.deviceOS)!
+        if(device?.isCheckedOut)!{
+            cell.detailTextLabel?.text = "Device Last Checked out by \(device?.lastCheckedOutBy)"
+        }
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let device = _devices?[indexPath.row]
         
+        let ddv : DeviceDetailViewController = DeviceDetailViewController()
         
+        ddv.currentDevice = device
+        
+        self.navigationController?.pushViewController(ddv, animated: true)
         
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
     
+    
+    
+    @IBAction func addDevice(_ sender: Any) {
+    }
     // MARK - helper functions
     
     private func getDevicesFromCoreData()   {
