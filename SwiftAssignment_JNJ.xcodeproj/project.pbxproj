@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8845EB0C1DF3A537008B85F5 /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8845EB0A1DF3A537008B85F5 /* AddDeviceViewController.swift */; };
+		8845EB0D1DF3A537008B85F5 /* AddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8845EB0B1DF3A537008B85F5 /* AddDeviceViewController.xib */; };
 		88AD31011DEE8C25005AE634 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD30FF1DEE8C25005AE634 /* Device+CoreDataClass.swift */; };
 		88AD31021DEE8C25005AE634 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD31001DEE8C25005AE634 /* Device+CoreDataProperties.swift */; };
 		88AD31051DEEAFDF005AE634 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD31031DEEAFDE005AE634 /* DeviceDetailViewController.swift */; };
@@ -26,13 +28,15 @@
 
 /* Begin PBXFileReference section */
 		549534335975C28E9C4E2A25 /* Pods_SwiftAssignment_JNJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAssignment_JNJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8845EB0A1DF3A537008B85F5 /* AddDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
+		8845EB0B1DF3A537008B85F5 /* AddDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDeviceViewController.xib; sourceTree = "<group>"; };
 		88AD30FF1DEE8C25005AE634 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
 		88AD31001DEE8C25005AE634 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		88AD31031DEEAFDE005AE634 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		88AD31041DEEAFDE005AE634 /* DeviceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceDetailViewController.xib; sourceTree = "<group>"; };
 		88B6C4CB1DEB9943007E7583 /* SwiftAssignment_JNJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftAssignment_JNJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B6C4CE1DEB9943007E7583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88B6C4D01DEB9943007E7583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwiftAssignment_JNJ/ViewController.swift; sourceTree = "<group>"; };
+		88B6C4D01DEB9943007E7583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		88B6C4D31DEB9944007E7583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88B6C4D51DEB9944007E7583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88B6C4D81DEB9944007E7583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,10 +64,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8845EB091DF3A3D0008B85F5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88AD31031DEEAFDE005AE634 /* DeviceDetailViewController.swift */,
+				88B6C4D01DEB9943007E7583 /* ViewController.swift */,
+				88AD31041DEEAFDE005AE634 /* DeviceDetailViewController.xib */,
+				8845EB0A1DF3A537008B85F5 /* AddDeviceViewController.swift */,
+				8845EB0B1DF3A537008B85F5 /* AddDeviceViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		88B6C4C21DEB9942007E7583 = {
 			isa = PBXGroup;
 			children = (
-				88B6C4D01DEB9943007E7583 /* ViewController.swift */,
 				88B6C5161DEE45B4007E7583 /* Podfile */,
 				88B6C4CD1DEB9943007E7583 /* SwiftAssignment_JNJ */,
 				88B6C4EE1DEE19FB007E7583 /* Frameworks */,
@@ -84,14 +99,13 @@
 		88B6C4CD1DEB9943007E7583 /* SwiftAssignment_JNJ */ = {
 			isa = PBXGroup;
 			children = (
+				8845EB091DF3A3D0008B85F5 /* ViewControllers */,
 				88B6C4CE1DEB9943007E7583 /* AppDelegate.swift */,
 				88B6C4D21DEB9944007E7583 /* Main.storyboard */,
 				88B6C4D51DEB9944007E7583 /* Assets.xcassets */,
 				88B6C4D71DEB9944007E7583 /* LaunchScreen.storyboard */,
 				88B6C4DA1DEB9944007E7583 /* Info.plist */,
 				88B6C5191DEE6121007E7583 /* DeviceHelper.swift */,
-				88AD31031DEEAFDE005AE634 /* DeviceDetailViewController.swift */,
-				88AD31041DEEAFDE005AE634 /* DeviceDetailViewController.xib */,
 			);
 			path = SwiftAssignment_JNJ;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 				88B6C4D61DEB9944007E7583 /* Assets.xcassets in Resources */,
 				88AD31061DEEAFDF005AE634 /* DeviceDetailViewController.xib in Resources */,
 				88B6C5171DEE45B4007E7583 /* Podfile in Resources */,
+				8845EB0D1DF3A537008B85F5 /* AddDeviceViewController.xib in Resources */,
 				88B6C4D41DEB9944007E7583 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8845EB0C1DF3A537008B85F5 /* AddDeviceViewController.swift in Sources */,
 				88B6C4D11DEB9943007E7583 /* ViewController.swift in Sources */,
 				88AD31051DEEAFDF005AE634 /* DeviceDetailViewController.swift in Sources */,
 				88AD31021DEE8C25005AE634 /* Device+CoreDataProperties.swift in Sources */,

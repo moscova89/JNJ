@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDeviceViewController" customModule="SwiftAssignment_JNJ" customModuleProvider="target">
+            <connections>
+                <outlet property="deviceManufacturerTextField" destination="C4Z-za-fvq" id="MFo-IF-Yfp"/>
+                <outlet property="deviceOSTextField" destination="DwY-9y-8rc" id="JAU-aj-Dml"/>
+                <outlet property="deviceTextField" destination="mUh-xU-bK6" id="ir5-Wc-2wA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="textFields" destination="mUh-xU-bK6" collectionClass="NSMutableArray" id="aEb-U4-ycC"/>
+                <outletCollection property="textFields" destination="DwY-9y-8rc" collectionClass="NSMutableArray" id="ldI-un-pgd"/>
+                <outletCollection property="textFields" destination="C4Z-za-fvq" collectionClass="NSMutableArray" id="IOq-ZS-Ov2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Device" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-xU-bK6">
+                    <rect key="frame" x="29" y="114" width="316" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="OS" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwY-9y-8rc">
+                    <rect key="frame" x="29" y="164" width="316" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Manufacturer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4Z-za-fvq">
+                    <rect key="frame" x="29" y="214" width="316" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mUh-xU-bK6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="1yU-2d-mrc"/>
+                <constraint firstAttribute="trailing" secondItem="mUh-xU-bK6" secondAttribute="trailing" constant="30" id="4oJ-SH-xzo"/>
+                <constraint firstItem="DwY-9y-8rc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="6Le-QL-VPY"/>
+                <constraint firstItem="C4Z-za-fvq" firstAttribute="top" secondItem="DwY-9y-8rc" secondAttribute="bottom" constant="20" id="Ntm-5b-0pQ"/>
+                <constraint firstAttribute="trailing" secondItem="C4Z-za-fvq" secondAttribute="trailing" constant="30" id="O1W-Vy-ZmV"/>
+                <constraint firstAttribute="bottom" secondItem="C4Z-za-fvq" secondAttribute="bottom" constant="423" id="WiR-m2-Wdi"/>
+                <constraint firstItem="mUh-xU-bK6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="f15-qr-vIe"/>
+                <constraint firstItem="C4Z-za-fvq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="gsF-uZ-RsW"/>
+                <constraint firstAttribute="trailing" secondItem="DwY-9y-8rc" secondAttribute="trailing" constant="30" id="tit-kV-wla"/>
+                <constraint firstItem="DwY-9y-8rc" firstAttribute="top" secondItem="mUh-xU-bK6" secondAttribute="bottom" constant="20" id="xM8-QV-8YB"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
