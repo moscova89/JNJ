@@ -91,22 +91,29 @@ class DeviceHelper{
         }catch{
             print("Error with fetch Request \(error)")
         }
-//        context?.perform {
-//            let request: NSFetchRequest<Device> = Device.fetchRequest()
-//            request.predicate = NSPredicate(format: "deviceID == %i", deviceID)
-//            do {
-//                let devices = try? request.execute()
-//                if ((devices?.count)! > 0){
-//                   returnDevice = devices?.first
-//                }
-//            }
-//            
-//        }
-
- 
+        
         
         return returnDevice!;
         
+    }
+    
+    static func removeDeviceWithIDFromCoreData(deviceID:Int){
+        let context = JNJGlobals.devicesObjectContext
+        var deviceToDelete : Device?
+        let fetReq : NSFetchRequest<Device> = Device.fetchRequest()
+        fetReq.predicate = NSPredicate(format: "deviceID == %i", deviceID)
+        do{
+            let fetRes = try context?.fetch(fetReq)
+            
+            deviceToDelete = fetRes?.first
+            context?.delete(deviceToDelete!)
+        }catch{
+            print("Error with deleting context \(error)")
+        }
+        
+      
+        
+      
     }
     
     static func populateDeviceUsingDictionary(device: inout Device, deviceDictionary: NSDictionary){

@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getDevicesFromCoreData();
+        tableview?.reloadData();
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,9 +86,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 64
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let device = _devices?[indexPath.row]
+            _devices?.remove(at: indexPath.row)
+            DeviceHelper.removeDeviceWithIDFromCoreData(deviceID: Int((device?.deviceID)!))
+            
+        }
+    }
     
     
     @IBAction func addDevice(_ sender: Any) {
+        let addDeviceVC = AddDeviceViewController()
+        self.navigationController?.pushViewController(addDeviceVC, animated: true)
     }
     // MARK - helper functions
     
