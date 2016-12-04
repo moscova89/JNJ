@@ -32,7 +32,7 @@
 		88AD31041DEEAFDE005AE634 /* DeviceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceDetailViewController.xib; sourceTree = "<group>"; };
 		88B6C4CB1DEB9943007E7583 /* SwiftAssignment_JNJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftAssignment_JNJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B6C4CE1DEB9943007E7583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88B6C4D01DEB9943007E7583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88B6C4D01DEB9943007E7583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwiftAssignment_JNJ/ViewController.swift; sourceTree = "<group>"; };
 		88B6C4D31DEB9944007E7583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88B6C4D51DEB9944007E7583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88B6C4D81DEB9944007E7583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,7 @@
 		88B6C4C21DEB9942007E7583 = {
 			isa = PBXGroup;
 			children = (
+				88B6C4D01DEB9943007E7583 /* ViewController.swift */,
 				88B6C5161DEE45B4007E7583 /* Podfile */,
 				88B6C4CD1DEB9943007E7583 /* SwiftAssignment_JNJ */,
 				88B6C4EE1DEE19FB007E7583 /* Frameworks */,
@@ -84,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				88B6C4CE1DEB9943007E7583 /* AppDelegate.swift */,
-				88B6C4D01DEB9943007E7583 /* ViewController.swift */,
 				88B6C4D21DEB9944007E7583 /* Main.storyboard */,
 				88B6C4D51DEB9944007E7583 /* Assets.xcassets */,
 				88B6C4D71DEB9944007E7583 /* LaunchScreen.storyboard */,

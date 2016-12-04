@@ -85,6 +85,7 @@ class DeviceDetailViewController: UIViewController {
         
         alertController.addAction(alertAction)
         alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil);
     }
     
     
@@ -92,7 +93,7 @@ class DeviceDetailViewController: UIViewController {
         let urlString = JNJConstants.baseURL! + "/devices/\(currentDevice?.deviceID)"
         
         let parameters = [
-            "isCheckedOut":false
+            "isCheckedOut":NSNumber(value:false)
             
             ] as [String : Any]
         
@@ -116,6 +117,7 @@ class DeviceDetailViewController: UIViewController {
         let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(alert:UIAlertAction!) -> Void in
             weakSelf?.currentDevice?.isCheckedOut = true;
             weakSelf?.currentDevice?.lastCheckedOutBy = alertController.textFields?.first?.text
+            weakSelf?.currentDevice?.lastCheckedOutDate = DateFormatter.localizedString(from: Date(), dateStyle: DateFormatter.Style.full, timeStyle: DateFormatter.Style.full)
             weakSelf?.updateLabels();
             do{
                 weakSelf?.checkOutOnNetwork(name: weakSelf?.currentDevice?.lastCheckedOutBy)
@@ -130,7 +132,7 @@ class DeviceDetailViewController: UIViewController {
         
         alertController.addAction(alertAction)
         alertController.addAction(cancelAction)
-        
+        self.present(alertController,animated:true,completion:nil)
     }
     
     private func checkOutOnNetwork(name:String?){
@@ -140,7 +142,7 @@ class DeviceDetailViewController: UIViewController {
         let parameters = [
             "lastCheckedOutDate":dateString,
             "lastCheckedOutBy":name!,
-            "isCheckedOut":true
+            "isCheckedOut":NSNumber(value: true)
             
             ] as [String : Any]
         
@@ -163,6 +165,7 @@ class DeviceDetailViewController: UIViewController {
         }else{
             lastCheckedInLabel.isHidden = true
         }
+        self.setButtonText();
     }
     
     
