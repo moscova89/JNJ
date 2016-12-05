@@ -18,13 +18,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var _devices : [Device]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        weak var weakSelf = self;
+        
         // Do any additional setup after loading the view, typically from a nib.
         
-        _devices = DeviceHelper.getAllDevicesFromCoreData()
+ 
         tableview?.delegate = self
         tableview?.dataSource = self
         
         tableview?.register(UITableViewCell.self, forCellReuseIdentifier: ViewController.cellID!)
+        
+        let mainQ = DispatchQueue.main
+        let deadline = DispatchTime.now() + .seconds(4)
+        
+        mainQ.asyncAfter(deadline: deadline, execute:  {
+            weakSelf?.initialLoad()
+        })
         
         
     }
@@ -89,9 +99,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             let device = _devices?[indexPath.row]
+             DeviceHelper.removeDeviceWithIDFromCoreData(deviceID: Int((device?.deviceID)!))
             _devices?.remove(at: indexPath.row)
-            DeviceHelper.removeDeviceWithIDFromCoreData(deviceID: Int((device?.deviceID)!))
-            
+            self.tableview?.reloadData()
         }
     }
     
@@ -103,6 +113,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK - helper functions
     
   
+    
+    //This function is called once when the view is loaded.
+    private func initialLoad(){
+         _devices = DeviceHelper.getAllDevicesFromCoreData()
+        self.tableview?.reloadData()
+    }
     
 
 

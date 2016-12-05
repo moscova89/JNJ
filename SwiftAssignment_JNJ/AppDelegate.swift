@@ -14,6 +14,7 @@ import Alamofire
 struct JNJConstants {
     static let baseURL : String? = "https://private-1cc0f-devicecheckout.apiary-mock.com"
     static let deviceEntityName : String? = "Device"
+    static let kInitialDeviceInputNotification : String? = "kInitialDeviceInputNotification"
     
 }
 
