@@ -135,7 +135,7 @@ class AddDeviceViewController: UIViewController, UITextFieldDelegate {
                 }catch{
                     print(error)
                 }
-                  self.navigationController?.popViewController(animated: true)
+                  weakSelf?.navigationController?.popViewController(animated: true)
                 
             })
             

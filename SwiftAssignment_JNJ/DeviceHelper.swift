@@ -15,8 +15,8 @@ import Alamofire
 class DeviceHelper{
     
     
-   static func loadDevicesFromBackendAndStoreInCoreData(){
-    
+    static func loadDevicesFromBackendAndStoreInCoreData(){
+        
         let context = JNJGlobals.devicesObjectContext
         let urlString = JNJConstants.baseURL! + "/devices"
         Alamofire.request(urlString).responseJSON { (response) in
@@ -27,24 +27,24 @@ class DeviceHelper{
                 for deviceDictionary in arrayOfDevices{
                     let deviceID = deviceDictionary["id"] as! Int
                     if(DeviceHelper.doesDeviceExistInCoreData(deviceID: deviceID)){
-                       var device = DeviceHelper.getDeviceWithIDFromCoreData(deviceID: deviceID)
-//                        device.deviceID = (deviceDictionary.object(forKey: "id") as! Int64?)!
-//                        device.deviceOS = deviceDictionary.object(forKey: "os") as! String?
-//                        device.deviceName = deviceDictionary.object(forKey: "device") as! String?
-//                        device.deviceManufacturer = deviceDictionary.object(forKey: "manufacturer") as! String?
-//                        device.isCheckedOut = (deviceDictionary.object(forKey:"isCheckedOut") as! Bool?)!
-//                        device.lastCheckedOutBy = deviceDictionary.object(forKey: "lastCheckedOutBy") as! String?
-//                        device.lastCheckedOutDate = deviceDictionary.object(forKey: "lastCheckedOutDate") as! String?
-                          DeviceHelper.populateDeviceUsingDictionary(device: &device, deviceDictionary: deviceDictionary)
+                        var device = DeviceHelper.getDeviceWithIDFromCoreData(deviceID: deviceID)
+                        //                        device.deviceID = (deviceDictionary.object(forKey: "id") as! Int64?)!
+                        //                        device.deviceOS = deviceDictionary.object(forKey: "os") as! String?
+                        //                        device.deviceName = deviceDictionary.object(forKey: "device") as! String?
+                        //                        device.deviceManufacturer = deviceDictionary.object(forKey: "manufacturer") as! String?
+                        //                        device.isCheckedOut = (deviceDictionary.object(forKey:"isCheckedOut") as! Bool?)!
+                        //                        device.lastCheckedOutBy = deviceDictionary.object(forKey: "lastCheckedOutBy") as! String?
+                        //                        device.lastCheckedOutDate = deviceDictionary.object(forKey: "lastCheckedOutDate") as! String?
+                        DeviceHelper.populateDeviceUsingDictionary(device: &device, deviceDictionary: deviceDictionary)
                     }else{
                         var device = NSEntityDescription.insertNewObject(forEntityName: JNJConstants.deviceEntityName!, into: JNJGlobals.devicesObjectContext!) as! Device
-//                        device.deviceID = (deviceDictionary.object(forKey: "id") as! Int64?)!
-//                        device.deviceOS = deviceDictionary.object(forKey: "os") as! String?
-//                        device.deviceName = deviceDictionary.object(forKey: "device") as! String?
-//                        device.isCheckedOut = (deviceDictionary.object(forKey:"isCheckedOut") as! Bool?)!
-//                        device.deviceManufacturer = deviceDictionary.object(forKey: "manufacturer") as! String?
-//                        device.lastCheckedOutBy = deviceDictionary.object(forKey: "lastCheckedOutBy") as! String?
-//                        device.lastCheckedOutDate = deviceDictionary.object(forKey: "lastCheckedOutDate") as! String?
+                        //                        device.deviceID = (deviceDictionary.object(forKey: "id") as! Int64?)!
+                        //                        device.deviceOS = deviceDictionary.object(forKey: "os") as! String?
+                        //                        device.deviceName = deviceDictionary.object(forKey: "device") as! String?
+                        //                        device.isCheckedOut = (deviceDictionary.object(forKey:"isCheckedOut") as! Bool?)!
+                        //                        device.deviceManufacturer = deviceDictionary.object(forKey: "manufacturer") as! String?
+                        //                        device.lastCheckedOutBy = deviceDictionary.object(forKey: "lastCheckedOutBy") as! String?
+                        //                        device.lastCheckedOutDate = deviceDictionary.object(forKey: "lastCheckedOutDate") as! String?
                         DeviceHelper.populateDeviceUsingDictionary(device: &device, deviceDictionary: deviceDictionary)
                         try? context?.save()
                     }
@@ -59,11 +59,11 @@ class DeviceHelper{
     }
     
     static func doesDeviceExistInCoreData(deviceID: Int) -> Bool{
-         let context = JNJGlobals.devicesObjectContext
+        let context = JNJGlobals.devicesObjectContext
         
-//        let fetReq = NSFetchRequest<NSFetchRequestResult>(entityName:JNJConstants.deviceEntityName!)
-//        fetReq.predicate = NSPredicate(format: "deviceID = \(deviceID)")
-//        let fetchResults  = context?.fetch(<#T##request: NSFetchRequest<T>##NSFetchRequest<T>#>)
+        //        let fetReq = NSFetchRequest<NSFetchRequestResult>(entityName:JNJConstants.deviceEntityName!)
+        //        fetReq.predicate = NSPredicate(format: "deviceID = \(deviceID)")
+        //        let fetchResults  = context?.fetch(<#T##request: NSFetchRequest<T>##NSFetchRequest<T>#>)
         
         let request: NSFetchRequest<Device> = Device.fetchRequest()
         request.predicate = NSPredicate(format: "deviceID == %i", deviceID)
@@ -76,7 +76,7 @@ class DeviceHelper{
             return false
         }
         
-           }
+    }
     static func getDeviceWithIDFromCoreData(deviceID: Int) -> Device{
         let context = JNJGlobals.devicesObjectContext
         
@@ -97,6 +97,23 @@ class DeviceHelper{
         
     }
     
+    static func getAllDevicesFromCoreData() ->[Device]{
+        
+        let deviceContext = JNJGlobals.devicesObjectContext
+        let fetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: JNJConstants.deviceEntityName!)
+        var deviceArray : [Device]? = nil
+        do{
+            deviceArray = try deviceContext?.fetch(fetchRequest) as? [Device]
+            
+            
+        }catch{
+            print(error)
+        }
+        return deviceArray!
+        
+        
+    }
+    
     static func removeDeviceWithIDFromCoreData(deviceID:Int){
         let context = JNJGlobals.devicesObjectContext
         var deviceToDelete : Device?
@@ -111,10 +128,12 @@ class DeviceHelper{
             print("Error with deleting context \(error)")
         }
         
-      
         
-      
+        
+        
     }
+    
+    
     
     static func populateDeviceUsingDictionary(device: inout Device, deviceDictionary: NSDictionary){
         device.deviceID = (deviceDictionary.object(forKey: "id") as! Int64?)!

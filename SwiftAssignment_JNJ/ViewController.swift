@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.getDevicesFromCoreData()
+        _devices = DeviceHelper.getAllDevicesFromCoreData()
         tableview?.delegate = self
         tableview?.dataSource = self
         
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getDevicesFromCoreData();
+        _devices = DeviceHelper.getAllDevicesFromCoreData()
         tableview?.reloadData();
     }
     
@@ -102,25 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     // MARK - helper functions
     
-    private func getDevicesFromCoreData()   {
-        
-        let deviceContext = JNJGlobals.devicesObjectContext
-        let fetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: JNJConstants.deviceEntityName!)
-       
-        do{
-             _devices = try deviceContext?.fetch(fetchRequest) as? [Device]
-            
-            
-            
-            
-        }catch{
-            print(error)
-        }
-        
-       
-        
-    }
-    
+  
     
 
 
